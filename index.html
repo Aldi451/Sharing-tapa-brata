@@ -4,101 +4,219 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sharing Pengalaman: Tapa Brata Bali Usada</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7f9f6; color: #333; overflow-x: hidden; scroll-behavior: smooth; }
-  section { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; box-sizing: border-box; border-bottom: 1px solid #e0e5df; }
-  .bg-1 { background: linear-gradient(135deg, #e0ebd8 0%, #c4d7b6 100%); }
-  .bg-2 { background-color: #fff; }
-  .bg-3 { background-color: #f0ebd8; }
-  .bg-4 { background: linear-gradient(135deg, #fceade 0%, #f7d1b7 100%); } /* Warna Oranye untuk Cakra Seks */
-  h1 { font-size: 3.5rem; color: #2c4c3b; margin-bottom: 1rem; text-align: center; }
-  h2 { font-size: 2.5rem; color: #3a5a49; margin-bottom: 1.5rem; }
-  h3 { font-size: 1.8rem; color: #d35400; }
-  p, li { font-size: 1.4rem; line-height: 1.6; max-width: 800px; }
-  ul { text-align: left; margin: 1rem 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: 'Poppins', sans-serif; 
+    color: #2b3a32; 
+    overflow-x: hidden; 
+    scroll-behavior: smooth; 
+    background-color: #f4f7f5;
+  }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+  
+  /* Sections & Backgrounds */
+  section { 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 4rem 2rem; 
+    position: relative;
+  }
+  .bg-1 { background: linear-gradient(135deg, #d8e5d3 0%, #b8cbb0 100%); }
+  .bg-2 { background: #ffffff; }
+  .bg-3 { background: linear-gradient(135deg, #f2ead3 0%, #e8dec3 100%); }
+  .bg-4 { background: linear-gradient(135deg, #fde3d0 0%, #f4bca3 100%); }
+  
+  /* Typography */
+  h1 { font-size: 4rem; color: #1e3629; margin-bottom: 0.5rem; text-align: center; line-height: 1.2; }
+  h2 { font-size: 3rem; color: #244232; margin-bottom: 1.5rem; text-align: center; }
+  h3 { font-size: 1.8rem; color: #b04600; margin-bottom: 1.5rem; text-align: center; font-style: italic; }
+  .subtitle { font-size: 1.4rem; text-align: center; font-weight: 300; margin-bottom: 1rem; }
+  .author { font-size: 1.1rem; text-align: center; font-weight: 600; color: #4a6355; margin-bottom: 2rem; letter-spacing: 1px; }
+  
+  p, li { font-size: 1.2rem; line-height: 1.8; max-width: 800px; }
+  p { margin-bottom: 1rem; }
+  ul, ol { margin-left: 1.5rem; max-width: 800px; }
   li { margin-bottom: 1rem; }
-  .nav-btn { display: inline-block; margin-top: 2rem; padding: 10px 25px; background-color: #2c4c3b; color: white; text-decoration: none; border-radius: 30px; font-weight: bold; transition: background 0.3s; }
-  .nav-btn:hover { background-color: #1a2e24; }
-  .card-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
-  .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 300px; text-align: center; }
-  .card h4 { color: #2c4c3b; font-size: 1.5rem; margin-top: 0; }
+  
+  /* Buttons */
+  .nav-btn { 
+    display: inline-block; 
+    margin-top: 2.5rem; 
+    padding: 12px 30px; 
+    background-color: #1e3629; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 50px; 
+    font-weight: 600; 
+    letter-spacing: 0.5px;
+    box-shadow: 0 10px 20px rgba(30, 54, 41, 0.2);
+    transition: all 0.3s ease; 
+  }
+  .nav-btn:hover { 
+    background-color: #2d523e; 
+    transform: translateY(-3px); 
+    box-shadow: 0 15px 25px rgba(30, 54, 41, 0.3);
+  }
+  
+  /* Glassmorphism Cards */
+  .card-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
+  .card { 
+    background: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 30px; 
+    border-radius: 20px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+    width: 340px; 
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  }
+  .card h4 { color: #1e3629; font-size: 1.6rem; margin-bottom: 15px; }
+  .card p { font-size: 1.1rem; margin-bottom: 0; }
+  
+  /* Quote Box */
+  .quote-box {
+    background: rgba(224, 235, 216, 0.7);
+    padding: 30px 40px;
+    border-left: 6px solid #1e3629;
+    border-radius: 0 15px 15px 0;
+    margin-top: 30px;
+    max-width: 800px;
+    position: relative;
+  }
+  .quote-box h4 { margin-bottom: 10px; color: #1e3629; font-size: 1.4rem; }
+  .quote-box p { font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0; }
+  
+  /* Scroll Animations */
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+  .reveal.active { opacity: 1; transform: translateY(0); }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+    .card { width: 100%; max-width: 400px; }
+  }
 </style>
 </head>
 <body>
 
   <!-- Slide 1: Cover -->
   <section id="slide1" class="bg-1">
-    <h1>Perjalanan Tapa Brata Bali Usada</h1>
-    <p style="text-align: center; font-size: 1.8rem;">Menemukan Keheningan, Menyembuhkan Diri dari Dalam</p>
-    <p style="text-align: center; font-style: italic;">Sharing Pengalaman Meditasi & Pembahasan Cakra Seks</p>
-    <a href="#slide2" class="nav-btn">Mulai Perjalanan &darr;</a>
+    <div class="reveal">
+      <h1>Tapa Brata<br>Bali Usada</h1>
+      <p class="subtitle">Menemukan Keheningan, Menyembuhkan Diri dari Dalam</p>
+      <p class="author">Oleh: Rifaldi Hidayat</p>
+      <div style="text-align: center;">
+        <a href="#slide2" class="nav-btn">Mulai Perjalanan &darr;</a>
+      </div>
+    </div>
   </section>
 
   <!-- Slide 2: Apa itu Tapa Brata -->
   <section id="slide2" class="bg-2">
-    <h2>Apa itu Tapa Brata?</h2>
-    <p>Tapa Brata adalah <em>retreat</em> meditasi intensif (biasanya 7 hari) yang dirancang untuk isolasi dan fokus total ke dalam diri.</p>
-    <div class="card-container">
-      <div class="card">
-        <h4>Noble Silence</h4>
-        <p>Puasa bicara, tanpa gadget, tanpa membaca, dan tanpa menulis. Benar-benar hening untuk memutus interupsi dunia luar.</p>
+    <div class="reveal" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <h2>Apa itu Tapa Brata?</h2>
+      <p style="text-align: center;">Tapa Brata adalah <strong>retreat meditasi intensif</strong> (biasanya 7 hari) yang dirancang untuk isolasi dan fokus total ke dalam diri.</p>
+      <div class="card-container">
+        <div class="card">
+          <h4>Noble Silence</h4>
+          <p>Puasa bicara, tanpa gadget, tanpa membaca, dan tanpa menulis. Benar-benar hening untuk memutus interupsi dunia luar.</p>
+        </div>
+        <div class="card">
+          <h4>Fokus Penyembuhan</h4>
+          <p>Bukan sekadar relaksasi, tapi secara aktif melatih pikiran untuk menyembuhkan penyakit fisik dan beban mental (trauma).</p>
+        </div>
       </div>
-      <div class="card">
-        <h4>Fokus Penyembuhan</h4>
-        <p>Bukan sekadar relaksasi, tapi secara aktif melatih pikiran untuk menyembuhkan penyakit fisik dan beban mental (trauma).</p>
-      </div>
+      <a href="#slide3" class="nav-btn">Lanjut &darr;</a>
     </div>
-    <a href="#slide3" class="nav-btn">Lanjut &darr;</a>
   </section>
 
   <!-- Slide 3: Pikiran Harmonis -->
   <section id="slide3" class="bg-3">
-    <h2>Senjata Utama: Pikiran Harmonis</h2>
-    <p>Di Bali Usada, kita tidak diajarkan untuk mengosongkan pikiran, melainkan melatih <strong>Pikiran Harmonis</strong> yang terdiri dari 4 unsur:</p>
-    <ul>
-      <li><strong>Konsentrasi:</strong> Pikiran yang fokus dan tidak mudah teralihkan.</li>
-      <li><strong>Kesadaran (Mindfulness):</strong> Sadar penuh akan apa yang terjadi saat ini (here and now).</li>
-      <li><strong>Cinta Kasih:</strong> Menerima kondisi diri tanpa menghakimi, melembutkan hati.</li>
-      <li><strong>Kebijaksanaan:</strong> Menyadari bahwa segala sesuatu, termasuk rasa sakit, itu selalu berubah dan tidak kekal (Anicca).</li>
-    </ul>
-    <a href="#slide4" class="nav-btn">Lanjut &darr;</a>
+    <div class="reveal" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <h2>Senjata Utama: Pikiran Harmonis</h2>
+      <p style="text-align: center; margin-bottom: 2rem;">Di Bali Usada, kita tidak diajarkan untuk mengosongkan pikiran, melainkan melatih <strong>Pikiran Harmonis</strong> yang terdiri dari 4 unsur:</p>
+      <ul>
+        <li><strong>Konsentrasi:</strong> Pikiran yang fokus dan tidak mudah teralihkan.</li>
+        <li><strong>Kesadaran (Mindfulness):</strong> Sadar penuh akan apa yang terjadi saat ini <em>(here and now)</em>.</li>
+        <li><strong>Cinta Kasih:</strong> Menerima kondisi diri tanpa menghakimi, melembutkan hati.</li>
+        <li><strong>Kebijaksanaan:</strong> Menyadari bahwa segala sesuatu, termasuk rasa sakit, itu selalu berubah dan tidak kekal <em>(Anicca)</em>.</li>
+      </ul>
+      <a href="#slide4" class="nav-btn">Lanjut &darr;</a>
+    </div>
   </section>
 
   <!-- Slide 4: Alur Meditasi -->
   <section id="slide4" class="bg-2">
-    <h2>Alur Praktek Meditasinya</h2>
-    <ol style="font-size: 1.4rem; line-height: 1.6; max-width: 800px;">
-      <li><strong>Persiapan:</strong> Duduk bersila, tegak tapi rileks. Rasakan sentuhan tubuh dengan lantai.</li>
-      <li><strong>Menyadari Napas:</strong> Memusatkan perhatian di area hidung/bibir atas. Merasakan napas masuk dan keluar secara alami tanpa diatur ritmenya.</li>
-      <li><strong>Body Scanning (Inti):</strong> Mengarahkan perhatian dari ujung kepala hingga ujung kaki secara berurutan (Cakra Mahkota, Tenggorokan, Jantung, Ulu Hati, Seks, Akar, hingga organ dalam).</li>
-      <li><strong>Penyembuhan:</strong> Saat menemui rasa sakit, tegang, atau memori buruk di suatu area, sadari dan pancarkan energi cinta kasih ke area tersebut sampai rileks.</li>
-    </ol>
-    <a href="#slide5" class="nav-btn">Lanjut ke Cakra Seks &darr;</a>
+    <div class="reveal" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <h2>Alur Praktek Meditasinya</h2>
+      <ol>
+        <li><strong>Persiapan:</strong> Duduk bersila, tegak tapi rileks. Rasakan sentuhan tubuh dengan lantai.</li>
+        <li><strong>Menyadari Napas:</strong> Memusatkan perhatian di area hidung atau bibir atas. Merasakan napas masuk dan keluar secara alami tanpa diatur ritmenya.</li>
+        <li><strong>Body Scanning (Inti):</strong> Mengarahkan perhatian dari ujung kepala hingga ujung kaki secara berurutan (Cakra Mahkota, Tenggorokan, Jantung, Ulu Hati, Seks, Akar, hingga organ dalam).</li>
+        <li><strong>Penyembuhan:</strong> Saat menemui rasa sakit, tegang, atau memori buruk di suatu area, sadari dan pancarkan energi cinta kasih ke area tersebut sampai rileks.</li>
+      </ol>
+      <a href="#slide5" class="nav-btn">Lanjut ke Cakra Seks &darr;</a>
+    </div>
   </section>
 
   <!-- Slide 5: Cakra Seks -->
   <section id="slide5" class="bg-4">
-    <h2>Fokus Spesifik: Membedah Cakra Seks (Svadhisthana)</h2>
-    <h3>Bukan Sekadar Urusan Ranjang!</h3>
-    <p>Terletak di perut bagian bawah (di bawah pusar). Cakra ini sesungguhnya adalah <strong>Dapur Kreativitas, Emosi, dan Semangat Hidup</strong>.</p>
-    <ul>
-      <li><strong>Fisik:</strong> Mengontrol kelancaran peredaran di organ reproduksi, ginjal, kandung kemih, dan seluruh cairan tubuh.</li>
-      <li><strong>Mental/Emosi:</strong> Pusat <em>passion</em>, gairah hidup, kesenangan, hubungan antar-manusia, dan kemampuan melahirkan karya/ide baru.</li>
-      <li><strong>Jika Tersumbat (Trauma/Emosi Terpendam):</strong> Menyebabkan nyeri panggul, kram, rasa hampa (numb), buntu ide, atau pelarian kesenangan ekstrem (kecanduan/impulsif).</li>
-    </ul>
-    <a href="#slide6" class="nav-btn">Lanjut &darr;</a>
-  </section>
-
-  <!-- Slide 6: Penyembuhan Cakra Seks & Konklusi -->
-  <section id="slide6" class="bg-2">
-    <h2>Penyembuhan & Pengalaman Pribadi</h2>
-    <p>Saat tahap <em>Body Scanning</em> di Tapa Brata, mengarahkan Pikiran Harmonis ke Cakra Seks berfungsi untuk mengurai dan melelehkan trauma, rasa bersalah, atau ketegangan yang menumpuk di perut bawah.</p>
-    <div style="background: #e0ebd8; padding: 20px; border-left: 5px solid #2c4c3b; margin-top: 20px;">
-      <h4 style="margin-top:0; color: #2c4c3b; font-size: 1.5rem;">Pengalaman Saya (Minggu Kemarin):</h4>
-      <p style="margin-bottom:0;"><em>"Setelah mengikuti retreat minggu lalu, saya merasakan pelepasan emosi yang luar biasa. Beban mental terasa jauh lebih ringan, dan saya kembali mendapatkan energi serta kejernihan (kreativitas) yang sempat buntu. Menyisir area tubuh, terutama melepaskan blokase energi di perut bawah, memberikan efek kelegaan fisik dan stabilitas emosional yang nyata."</em></p>
+    <div class="reveal" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <h2>Membedah Cakra Seks<br>(Svadhisthana)</h2>
+      <h3>Bukan Sekadar Urusan Ranjang!</h3>
+      <p style="text-align: center; margin-bottom: 2rem;">Terletak di perut bagian bawah (di bawah pusar). Cakra ini sesungguhnya adalah <strong>Dapur Kreativitas, Emosi, dan Semangat Hidup</strong>.</p>
+      <ul>
+        <li><strong>Fisik:</strong> Mengontrol kelancaran peredaran di organ reproduksi, ginjal, kandung kemih, dan seluruh cairan tubuh.</li>
+        <li><strong>Mental/Emosi:</strong> Pusat <em>passion</em>, gairah hidup, kesenangan, hubungan antar-manusia, dan kemampuan melahirkan karya atau ide baru.</li>
+        <li><strong>Jika Tersumbat:</strong> Menyebabkan nyeri panggul, rasa hampa <em>(numb)</em>, buntu ide, atau pelarian kesenangan ekstrem akibat emosi yang dipendam.</li>
+      </ul>
+      <a href="#slide6" class="nav-btn">Lanjut &darr;</a>
     </div>
-    <a href="#slide1" class="nav-btn" style="background-color: #7f8c8d;">&uarr; Kembali ke Awal</a>
   </section>
 
+  <!-- Slide 6: Penyembuhan & Konklusi -->
+  <section id="slide6" class="bg-2">
+    <div class="reveal" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+      <h2>Penyembuhan & Kelegaan</h2>
+      <p style="text-align: center;">Saat tahap <em>Body Scanning</em> di Tapa Brata, mengarahkan Pikiran Harmonis ke Cakra Seks berfungsi untuk mengurai dan melelehkan trauma atau ketegangan yang menumpuk di perut bawah.</p>
+      
+      <div class="quote-box">
+        <h4>Pengalaman Saya (Minggu Kemarin):</h4>
+        <p>"Setelah mengikuti retreat, saya merasakan pelepasan emosi yang luar biasa. Beban mental terasa jauh lebih ringan, dan saya kembali mendapatkan energi serta kreativitas yang sempat buntu. Menyisir area tubuh, terutama melepaskan blokase energi di perut bawah, memberikan efek kelegaan fisik dan stabilitas emosional yang nyata."</p>
+      </div>
+      
+      <a href="#slide1" class="nav-btn" style="background-color: #556b5e;">&uarr; Kembali ke Awal</a>
+    </div>
+  </section>
+
+  <!-- Script for Scroll Animation -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const reveals = document.querySelectorAll(".reveal");
+      
+      const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, { threshold: 0.15 });
+      
+      reveals.forEach(reveal => {
+        revealOnScroll.observe(reveal);
+      });
+    });
+  </script>
 </body>
 </html>
