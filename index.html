@@ -16,7 +16,6 @@
   }
   h1, h2, h3, h4 { font-family: 'Playfair Display', serif; text-align: center; }
   
-  /* Sections & Backgrounds */
   section { 
     min-height: 100vh; 
     display: flex; 
@@ -32,17 +31,13 @@
   .bg-4 { background: linear-gradient(135deg, #fde3d0 0%, #f4bca3 100%); }
   .bg-5 { background: linear-gradient(135deg, #e8d5f2 0%, #d4c5e8 100%); }
   
-  /* Typography */
   h1 { font-size: 3.5rem; color: #1e3629; margin-bottom: 0.5rem; line-height: 1.2; }
   h2 { font-size: 2.8rem; color: #244232; margin-bottom: 1.5rem; }
   h3 { font-size: 1.6rem; color: #b04600; margin-bottom: 1.5rem; font-style: italic; }
   .subtitle { font-size: 1.4rem; text-align: center; font-weight: 300; margin-bottom: 1rem; }
-  .author { font-size: 1.1rem; text-align: center; font-weight: 600; color: #4a6355; margin-bottom: 2rem; letter-spacing: 1px; }
-  
   p, li { font-size: 1.1rem; line-height: 1.8; max-width: 800px; }
   p { margin-bottom: 1rem; }
   
-  /* Buttons */
   .nav-btn { 
     display: inline-block; 
     margin-top: 2rem; 
@@ -60,8 +55,7 @@
     transform: translateY(-3px); 
   }
   
-  /* Cards & Lists */
-  .card-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 1rem; max-width: 900px;}
+  .card-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 1rem; max-width: 900px; }
   .card { 
     background: rgba(255, 255, 255, 0.7); 
     border: 1px solid rgba(255, 255, 255, 0.8);
@@ -70,8 +64,7 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
     width: 300px; 
   }
-  
-  /* Table Styling */
+
   .table-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -96,14 +89,9 @@
     padding: 15px;
     border-bottom: 1px solid #e0e0e0;
   }
-  tr:last-child td {
-    border-bottom: none;
-  }
-  tr:hover {
-    background: #f9f9f9;
-  }
-  
-  /* Step by Step Styling */
+  tr:last-child td { border-bottom: none; }
+  tr:hover { background: #f9f9f9; }
+
   .steps-container {
     max-width: 900px;
     margin: 2rem auto;
@@ -140,7 +128,6 @@
     font-size: 1rem;
   }
 
-  /* Benefits Grid */
   .benefits-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -159,31 +146,105 @@
     font-size: 1rem;
     color: #555;
   }
-  
-  /* Chakra Diagram CSS */
-  .chakra-container { display: flex; flex-direction: column; gap: 15px; margin: 20px 0; width: 100%; max-width: 600px;}
+
+  .image-block {
+    width: min(90vw, 920px);
+    margin: 2rem auto 0;
+    display: flex;
+    justify-content: center;
+  }
+  .image-card {
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  }
+  .image-placeholder {
+    background: linear-gradient(135deg, #e8efe8, #f8f8f4);
+    border: 2px dashed #9bb3a3;
+    border-radius: 12px;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    color: #365444;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+  .image-placeholder strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+  }
+  .image-placeholder img {
+    display: block;
+    max-width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  }
+
+  .chakra-container { display: flex; flex-direction: column; gap: 15px; margin: 20px 0; width: 100%; max-width: 600px; }
   .chakra-item { display: flex; align-items: center; background: white; padding: 10px 20px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-  .chakra-dot { width: 30px; height: 30px; border-radius: 50%; margin-right: 15px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2);}
-  .chakra-text { font-size: 1rem; line-height: 1.4; display: flex; flex-direction: column;}
+  .chakra-dot { width: 30px; height: 30px; border-radius: 50%; margin-right: 15px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  .chakra-text { font-size: 1rem; line-height: 1.4; display: flex; flex-direction: column; }
   .chakra-title { font-weight: 600; color: #1e3629; }
-  
-  /* Chakra Colors */
-  .c-mahkota { background-color: #9b59b6; } /* Ungu */
-  .c-mata3 { background-color: #34495e; } /* Nila/Indigo */
-  .c-tenggorokan { background-color: #3498db; } /* Biru */
-  .c-jantung { background-color: #2ecc71; } /* Hijau */
-  .c-uluhati { background-color: #f1c40f; } /* Kuning */
-  .c-seks { background-color: #e67e22; } /* Oranye */
-  .c-akar { background-color: #e74c3c; } /* Merah */
+  .c-mahkota { background-color: #9b59b6; }
+  .c-mata3 { background-color: #34495e; }
+  .c-tenggorokan { background-color: #3498db; }
+  .c-jantung { background-color: #2ecc71; }
+  .c-uluhati { background-color: #f1c40f; }
+  .c-seks { background-color: #e67e22; }
+  .c-akar { background-color: #e74c3c; }
 
   .quote-box { background: rgba(224, 235, 216, 0.7); padding: 30px; border-left: 6px solid #1e3629; border-radius: 0 15px 15px 0; max-width: 800px; }
   .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; width: 100%; display: flex; flex-direction: column; align-items: center; }
   .reveal.active { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    section {
+      padding: 3rem 1rem;
+    }
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.3rem; }
+    .subtitle { font-size: 1.05rem; }
+    p, li { font-size: 1rem; }
+    .card {
+      width: 100%;
+      min-width: 0;
+    }
+    .step {
+      padding: 16px 14px;
+    }
+    .step-title {
+      font-size: 1rem;
+    }
+    .step-desc {
+      margin-left: 0;
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+    .step-number {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 0.85rem;
+    }
+    .image-placeholder {
+      min-height: 250px;
+      font-size: 0.92rem;
+    }
+  }
 </style>
 </head>
 <body>
 
-  <!-- Slide 1: Cover -->
   <section id="slide1" class="bg-1">
     <div class="reveal">
       <h1>Tapa Brata Kelas 1<br>Bali Usada</h1>
@@ -192,7 +253,6 @@
     </div>
   </section>
 
-  <!-- Slide 2: Cara Meditasi Dasar -->
   <section id="slide2" class="bg-5">
     <div class="reveal">
       <h2>📖 Pengenalan Meditasi Dasar</h2>
@@ -229,6 +289,18 @@
         </table>
       </div>
 
+      <div class="image-block">
+        <div class="image-card">
+          <div class="image-placeholder">
+            <div>
+              <strong>Foto Tata Cara Duduk Bersila</strong>
+              Upload gambar ke folder <em>images/</em> lalu ganti path di bawah ini.<br>
+              Contoh: <strong>images/tata-cara-duduk.jpg</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <p style="text-align: center; font-style: italic; color: #555; margin-top: 1rem;">💡 Catatan: Bila perlu, Anda bisa duduk di kursi dengan kaki menyentuh lantai.</p>
 
       <h3 style="color: #1e3629; font-style: normal; margin-top: 2rem;">📋 Persiapan Meditasi - Langkah Demi Langkah</h3>
@@ -238,87 +310,58 @@
           <div class="step-title"><span class="step-number">1</span>Duduk dalam posisi meditasi yang telah dipilih</div>
           <div class="step-desc">Pilih posisi yang paling nyaman untuk Anda</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">2</span>Punggung dalam posisi tegak namun rileks</div>
           <div class="step-desc">Jangan membungkuk, biarkan tubuh rileks secara alami</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">3</span>Tangan kiri di bawah tangan kanan, ujung ibu jari bertemu dengan lembut</div>
           <div class="step-desc">Ini membantu mengalirkan energi dengan baik</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">4</span>Pejamkan mata</div>
           <div class="step-desc">Fokus ke dalam diri</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">5</span>Ujung lidah ditempatkan dengan lembut di langit-langit mulut</div>
           <div class="step-desc">Ini membantu mengaktifkan saluran energi utama</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">6</span>Rilekskan muka, agak tersenyum</div>
           <div class="step-desc">Kemudian rasakan secara besar kepala dan leher. Biarkan perubahan yang terjadi di leher terasa dengan halus. Panas/dingin, panjang/pendek, apapun rasa yang muncul</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">7</span>Sebutkan tujuan bermeditasi dalam dada</div>
-          <div class="step-desc">
-            ✓ Untuk melatih pikiran agar harmonis<br>
-            ✓ Untuk menyehatkan badan<br>
-            ✓ Untuk melepaskan reaksi buruk dari memori
-          </div>
+          <div class="step-desc">Untuk melatih pikiran agar harmonis, menyehatkan badan, dan melepaskan reaksi buruk dari memori.</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">8</span>Berdoa sesuai dengan keyakinan atau agama Anda</div>
           <div class="step-desc">Lepaskan pikiran Anda sepenuhnya</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">9</span>Pancarkan cinta kasih dengan mengucapkan "Semoga semua hidup berbahagian"</div>
           <div class="step-desc">Dari dada ke 12 arah/dua belas arah</div>
         </div>
-        
         <div class="step">
           <div class="step-title"><span class="step-number">10</span>Letakkan pikiran di lubang hidung, rasakan napas dengan lembut</div>
-          <div class="step-desc">
-            ✓ Biarkan badan kita bernapa seperti apa adanya<br>
-            ✓ Perhatikan perubahan yang terjadi di lubang hidung dengan halus (panas/dingin, panjang/pendek, apapun rasa yang muncul)<br>
-            ✓ Jangan melamun, jangan memikirkan yang sudah berlalu<br>
-            ✓ Jangan memikirkan yang akan datang, bila melamun segera tarik pikiran untuk merasakan sentuhan napas di dalam lubang hidung
-          </div>
+          <div class="step-desc">Biarkan badan kita bernapas seperti apa adanya. Perhatikan perubahan yang terjadi di lubang hidung dengan halus, dan tarik kembali pikiran saat melamun.</div>
         </div>
       </div>
 
       <h3 style="color: #1e3629; font-style: normal; margin-top: 2rem;">💪 Manfaat Meditasi</h3>
       
       <div class="benefits-grid">
-        <div class="benefit-item">
-          <p>✨ Meningkatkan ketenangan dan kesejahteraan mental</p>
-        </div>
-        <div class="benefit-item">
-          <p>✨ Mengurangi stres dan kecemasan</p>
-        </div>
-        <div class="benefit-item">
-          <p>✨ Meningkatkan fokus dan konsentrasi</p>
-        </div>
-        <div class="benefit-item">
-          <p>✨ Membantu penyembuhan emosional dan spiritual</p>
-        </div>
-        <div class="benefit-item">
-          <p>✨ Mengembangkan rasa kasih sayang dan empati</p>
-        </div>
+        <div class="benefit-item"><p>✨ Meningkatkan ketenangan dan kesejahteraan mental</p></div>
+        <div class="benefit-item"><p>✨ Mengurangi stres dan kecemasan</p></div>
+        <div class="benefit-item"><p>✨ Meningkatkan fokus dan konsentrasi</p></div>
+        <div class="benefit-item"><p>✨ Membantu penyembuhan emosional dan spiritual</p></div>
+        <div class="benefit-item"><p>✨ Mengembangkan rasa kasih sayang dan empati</p></div>
       </div>
 
       <a href="#slide3" class="nav-btn">Lanjut: Bagan 7 Cakra &darr;</a>
     </div>
   </section>
 
-  <!-- Slide 3: 7 Cakra -->
   <section id="slide3" class="bg-2">
     <div class="reveal">
       <h2>Bagan 7 Cakra (Pusat Energi)</h2>
@@ -337,7 +380,6 @@
     </div>
   </section>
 
-  <!-- Slide 4: 12 Arah & 5 Kalimat Cinta Kasih -->
   <section id="slide4" class="bg-3">
     <div class="reveal">
       <h2>Praktik Cinta Kasih (Metta)</h2>
@@ -363,7 +405,6 @@
     </div>
   </section>
 
-  <!-- Slide 5: Penyembuhan untuk Diri & Orang Lain -->
   <section id="slide5" class="bg-2">
     <div class="reveal">
       <h2>Penyembuhan (Healing) di Kelas 1</h2>
@@ -381,7 +422,6 @@
     </div>
   </section>
 
-  <!-- Slide 6: Konklusi -->
   <section id="slide6" class="bg-1">
     <div class="reveal">
       <h2>Kesimpulan & Pengalaman</h2>
@@ -395,14 +435,12 @@
     </div>
   </section>
 
-  <!-- Slide 7: Jadwal Latihan Harian -->
   <section id="slide7" class="bg-3">
     <div class="reveal">
       <h2>Latihan Harian Bersama</h2>
       <p style="text-align: center; margin-bottom: 2rem; max-width: 700px;">Program latihan bersama meditasi kesehatan secara <em>live online</em>. Mari pertahankan disiplin mengasah teknik meditasi dan cinta kasih bersama-sama.</p>
       
       <div class="card-container" style="max-width: 800px; gap: 40px;">
-        <!-- Card Zoom -->
         <div class="card" style="width: 320px; text-align: center;">
           <h4 style="margin-bottom: 5px;">💻 Live Zoom</h4>
           <p style="font-size: 0.95rem; font-style: italic; margin-bottom: 15px; color: #4a6355;">(Setiap Hari Pagi & Malam)</p>
@@ -410,7 +448,6 @@
             <li>🌅 <strong>05.00 WIB</strong> (English)</li>
             <li>🌃 <strong>21.00 WIB</strong> (Indonesia)</li>
           </ul>
-          
           <div style="background: rgba(30, 54, 41, 0.08); padding: 15px; border-radius: 10px;">
             <p style="font-size: 0.9rem; margin-bottom: 5px; text-align: left;"><strong>ID:</strong> 344 566 7899</p>
             <p style="font-size: 0.9rem; margin-bottom: 15px; text-align: left;"><strong>Passcode:</strong> baliusada</p>
@@ -418,11 +455,9 @@
           </div>
         </div>
 
-        <!-- Card YouTube -->
         <div class="card" style="width: 320px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
           <div>
             <h4 style="margin-bottom: 5px;">▶️ Sesi Spesial & Mandiri</h4>
-            
             <p style="font-size: 0.95rem; margin-top: 15px; margin-bottom: 5px;"><strong>Latihan bersama Pak Merta Ada:</strong></p>
             <p style="font-size: 0.9rem; margin-bottom: 10px;">Khusus Selasa Pagi & Minggu Malam diadakan live di YouTube.</p>
             <a href="http://youtube.com/c/baliusadahealthmeditation" target="_blank" style="color: #b04600; font-weight: 600; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 15px;">🔗 Subscribe di YouTube</a>
@@ -436,16 +471,13 @@
       </div>
 
       <p style="margin-top: 3rem; font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #244232; font-style: italic; font-weight: 600;">"Semoga Semua Hidup Berbahagia 😊🙏🏻"</p>
-      
       <a href="#slide1" class="nav-btn" style="background-color: #7f8c8d; margin-top: 1rem;">&uarr; Kembali ke Awal</a>
     </div>
   </section>
 
-  <!-- Script for Scroll Animation -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const reveals = document.querySelectorAll(".reveal");
-      
       const revealOnScroll = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -453,10 +485,7 @@
           }
         });
       }, { threshold: 0.15 });
-      
-      reveals.forEach(reveal => {
-        revealOnScroll.observe(reveal);
-      });
+      reveals.forEach(reveal => revealOnScroll.observe(reveal));
     });
   </script>
 </body>
