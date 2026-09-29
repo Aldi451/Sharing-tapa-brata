@@ -7,17 +7,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
   body { 
     font-family: 'Poppins', sans-serif; 
     color: #2b3a32; 
     overflow-x: hidden; 
     scroll-behavior: smooth; 
     background-color: #f4f7f5;
+    /* aman untuk hp bert-notch / gesture bar */
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
   }
+  img, svg { max-width: 100%; }
   h1, h2, h3, h4 { font-family: 'Playfair Display', serif; text-align: center; }
   
   section { 
     min-height: 100vh; 
+    min-height: 100svh; 
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
@@ -31,15 +41,17 @@
   .bg-4 { background: linear-gradient(135deg, #fde3d0 0%, #f4bca3 100%); }
   .bg-5 { background: linear-gradient(135deg, #e8d5f2 0%, #d4c5e8 100%); }
   
-  h1 { font-size: 3.5rem; color: #1e3629; margin-bottom: 0.5rem; line-height: 1.2; }
-  h2 { font-size: 2.8rem; color: #244232; margin-bottom: 1.5rem; }
-  h3 { font-size: 1.6rem; color: #b04600; margin-bottom: 1.5rem; font-style: italic; }
-  .subtitle { font-size: 1.4rem; text-align: center; font-weight: 300; margin-bottom: 1rem; }
+  h1 { font-size: 3.5rem; color: #1e3629; margin-bottom: 0.5rem; line-height: 1.2; text-wrap: balance; }
+  h2 { font-size: 2.8rem; color: #244232; margin-bottom: 1.5rem; text-wrap: balance; }
+  h3 { font-size: 1.6rem; color: #b04600; margin-bottom: 1.5rem; font-style: italic; text-wrap: balance; }
+  .subtitle { font-size: 1.4rem; text-align: center; font-weight: 300; margin-bottom: 1rem; text-wrap: balance; }
   p, li { font-size: 1.1rem; line-height: 1.8; max-width: 800px; }
   p { margin-bottom: 1rem; }
   
   .nav-btn { 
-    display: inline-block; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
     margin-top: 2rem; 
     padding: 12px 30px; 
     background-color: #1e3629; 
@@ -47,6 +59,8 @@
     text-decoration: none; 
     border-radius: 50px; 
     font-weight: 600; 
+    text-align: center; 
+    max-width: 100%; 
     box-shadow: 0 10px 20px rgba(30, 54, 41, 0.2);
     transition: all 0.3s ease; 
   }
@@ -55,7 +69,7 @@
     transform: translateY(-3px); 
   }
   
-  .card-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 1rem; max-width: 900px; }
+  .card-container { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; align-items: stretch; margin-top: 1rem; max-width: 900px; }
   .card { 
     background: rgba(255, 255, 255, 0.7); 
     border: 1px solid rgba(255, 255, 255, 0.8);
@@ -64,11 +78,17 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
     width: 300px; 
   }
+  .card--wide { width: 320px; }
+  .card--stack { display: flex; flex-direction: column; justify-content: space-between; }
+  .card-container--wide { gap: 40px; }
 
   .table-container {
     max-width: 800px;
+    width: 100%;
     margin: 2rem auto;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
   }
   table {
     width: 100%;
@@ -94,6 +114,7 @@
 
   .steps-container {
     max-width: 900px;
+    width: 100%;
     margin: 2rem auto;
   }
   .step {
@@ -115,6 +136,7 @@
     line-height: 35px;
     font-weight: 600;
     margin-right: 10px;
+    flex-shrink: 0;
   }
   .step-title {
     font-weight: 600;
@@ -133,6 +155,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     max-width: 900px;
+    width: 100%;
     margin: 2rem auto;
   }
   .benefit-item {
@@ -145,10 +168,12 @@
   .benefit-item p {
     font-size: 1rem;
     color: #555;
+    max-width: none;
   }
 
+  /* Kartu gambar (disisakan untuk foto posisi duduk, sudah responsif) */
   .image-block {
-    width: min(90vw, 920px);
+    width: min(92vw, 920px);
     margin: 2rem auto 0;
     display: flex;
     justify-content: center;
@@ -161,18 +186,25 @@
     padding: 18px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   }
-  .illustration {
+  .photo {
     width: 100%;
     height: auto;
     display: block;
     background: #f5f4f1;
     border-radius: 12px;
   }
+  .image-caption {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+  }
 
   .chakra-container { display: flex; flex-direction: column; gap: 15px; margin: 20px 0; width: 100%; max-width: 600px; }
   .chakra-item { display: flex; align-items: center; background: white; padding: 10px 20px; border-radius: 50px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
   .chakra-dot { width: 30px; height: 30px; border-radius: 50%; margin-right: 15px; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-  .chakra-text { font-size: 1rem; line-height: 1.4; display: flex; flex-direction: column; }
+  .chakra-text { font-size: 1rem; line-height: 1.4; display: flex; flex-direction: column; min-width: 0; }
   .chakra-title { font-weight: 600; color: #1e3629; }
   .c-mahkota { background-color: #9b59b6; }
   .c-mata3 { background-color: #34495e; }
@@ -183,20 +215,47 @@
   .c-akar { background-color: #e74c3c; }
 
   .quote-box { background: rgba(224, 235, 216, 0.7); padding: 30px; border-left: 6px solid #1e3629; border-radius: 0 15px 15px 0; max-width: 800px; }
-  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; width: 100%; display: flex; flex-direction: column; align-items: center; }
-  .reveal.active { opacity: 1; transform: translateY(0); }
+  .lead { max-width: 800px; text-align: center; margin-bottom: 2rem; }
+  .lead h3 { font-size: 1.5rem; color: #1e3629; font-style: normal; margin-bottom: 1rem; }
+  .lead p { text-align: justify; }
+  .section-subhead { color: #1e3629; font-style: normal; margin-top: 2rem; }
+  .section-note { text-align: center; font-style: italic; color: #555; margin-top: 1rem; }
+  .zoom-box { background: rgba(30, 54, 41, 0.08); padding: 15px; border-radius: 10px; }
+  .zoom-box p { font-size: 0.9rem; text-align: left; }
+  .zoom-box p:first-child { margin-bottom: 5px; }
+  .zoom-box p:last-of-type { margin-bottom: 15px; }
+  .btn-block { display: block; text-decoration: none; border-radius: 6px; font-size: 0.9rem; font-weight: 600; padding: 10px; }
+  .btn-zoom { background: #244232; color: white; }
+  .btn-playlist { background: #c0392b; color: white; }
+  .link-accent { color: #b04600; font-weight: 600; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 15px; }
+  .card-divider { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1); }
+  .schedule { list-style: none; margin: 0 auto 15px auto; padding: 0; font-size: 1rem; text-align: left; display: inline-block; }
+  .closing-wish { margin-top: 3rem; font-family: 'Playfair Display', serif; font-size: clamp(1.25rem, 3.4vw, 1.8rem); color: #244232; font-style: italic; font-weight: 600; text-align: center; text-wrap: balance; max-width: 100%; }
+  .reveal { opacity: 1; transform: none; transition: all 0.8s ease-out; width: 100%; display: flex; flex-direction: column; align-items: center; }
+  /* animasi hanya aktif bila JS tersedia (kelas .js ditambahkan oleh script) */
+  .js .reveal { opacity: 0; transform: translateY(30px); }
+  .js .reveal.active { opacity: 1; transform: translateY(0); }
+
+  /* ========== RESPONSIF ========== */
+  /* Catatan: semua aturan di bawah hanya berlaku untuk lebar <= 768px.
+     Di atas 768px tampilan sengaja dibiarkan persis seperti aslinya. */
 
   @media (max-width: 768px) {
     section {
       padding: 3rem 1rem;
     }
-    h1 { font-size: 2.4rem; }
-    h2 { font-size: 2rem; }
-    h3 { font-size: 1.3rem; }
-    .subtitle { font-size: 1.05rem; }
-    p, li { font-size: 1rem; }
-    .card {
+    h1 { font-size: clamp(2.1rem, 5.6vw, 2.4rem); }
+    h2 { font-size: clamp(1.7rem, 4.6vw, 2rem); }
+    h3 { font-size: clamp(1.2rem, 2.8vw, 1.3rem); }
+    .subtitle { font-size: clamp(1rem, 2.5vw, 1.05rem); }
+    p, li { font-size: clamp(0.95rem, 1.9vw, 1rem); }
+    .card-container {
       width: 100%;
+    }
+    .card,
+    .card--wide {
+      width: 100%;
+      max-width: 420px;
       min-width: 0;
     }
     .step {
@@ -215,10 +274,119 @@
       height: 30px;
       line-height: 30px;
       font-size: 0.85rem;
+      margin-right: 8px;
     }
     .image-card {
       padding: 12px;
     }
+    .image-block {
+      width: 100%;
+      margin-top: 1.5rem;
+    }
+    .card-container,
+    .card-container--wide {
+      gap: 20px;
+    }
+    .table-container {
+      margin: 1.5rem auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 12px 10px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin: 1.5rem auto;
+    }
+    .benefit-item {
+      padding: 16px;
+    }
+    .chakra-item {
+      padding: 10px 14px;
+      border-radius: 14px;
+    }
+    .chakra-dot {
+      width: 26px;
+      height: 26px;
+      margin-right: 12px;
+    }
+    .chakra-text {
+      font-size: 0.92rem;
+    }
+    .quote-box {
+      padding: 20px 16px;
+    }
+    .lead {
+      margin-bottom: 1.5rem;
+    }
+    .lead h3 {
+      font-size: clamp(1.15rem, 2.8vw, 1.3rem);
+    }
+    .lead p {
+      text-align: left;
+    }
+    .section-subhead {
+      margin-top: 1.5rem;
+    }
+    .section-note {
+      margin-top: 0.75rem;
+    }
+    .nav-btn {
+      padding: 14px 24px;
+      min-height: 48px;
+      font-size: 0.95rem;
+    }
+    /* target sentuh minimal 44px */
+    .btn-block {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 10px;
+    }
+    .link-accent {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  /* hp kecil */
+  @media (max-width: 480px) {
+    section { padding: 2.25rem 0.9rem; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.55rem; }
+    h3 { font-size: 1.2rem; }
+    .card { padding: 18px; }
+    .steps-container, .benefits-grid, .table-container { margin-top: 1.25rem; margin-bottom: 1.25rem; }
+    .step { padding: 14px 12px; margin-bottom: 1rem; }
+    .quote-box { padding: 18px 14px; border-left-width: 5px; }
+  }
+
+  /* hp sangat kecil / landscape */
+  @media (max-width: 360px) {
+    section { padding: 2rem 0.7rem; }
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.4rem; }
+    .nav-btn { padding: 14px 18px; min-height: 48px; font-size: 0.9rem; }
+    .step-title { font-size: 0.95rem; }
+  }
+
+  @media (max-height: 520px) and (orientation: landscape) {
+    section { min-height: auto; padding-top: 3rem; padding-bottom: 3rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html, body { scroll-behavior: auto; }
+    .reveal, .js .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .nav-btn:hover { transform: none; }
   }
 </style>
 </head>
@@ -236,12 +404,12 @@
     <div class="reveal">
       <h2>📖 Pengenalan Meditasi Dasar</h2>
       
-      <div style="max-width: 800px; text-align: center; margin-bottom: 2rem;">
-        <h3 style="font-size: 1.5rem; color: #1e3629; font-style: normal; margin-bottom: 1rem;">Apa itu Meditasi?</h3>
-        <p style="text-align: justify;">Meditasi adalah praktik fokus pikiran untuk mencapai ketenangan, keseimbangan emosional, dan penyembuhan diri. Melalui meditasi, kita dapat mengurangi stres, meningkatkan kesadaran, dan memperkuat koneksi antara tubuh dan pikiran.</p>
+      <div class="lead">
+        <h3>Apa itu Meditasi?</h3>
+        <p>Meditasi adalah praktik fokus pikiran untuk mencapai ketenangan, keseimbangan emosional, dan penyembuhan diri. Melalui meditasi, kita dapat mengurangi stres, meningkatkan kesadaran, dan memperkuat koneksi antara tubuh dan pikiran.</p>
       </div>
 
-      <h3 style="color: #1e3629; font-style: normal; margin-top: 2rem;">🧘 Posisi Duduk Saat Bermeditasi</h3>
+      <h3 class="section-subhead">🧘 Posisi Duduk Saat Bermeditasi</h3>
       
       <div class="table-container">
         <table>
@@ -268,96 +436,9 @@
         </table>
       </div>
 
-      <div class="image-block">
-        <div class="image-card">
-          <svg class="illustration" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi posisi duduk dan tangan saat bermeditasi">
-            <rect width="900" height="420" fill="#f4f2ee"/>
-            <g stroke="#1d1d1d" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <text x="70" y="50" font-size="28" font-family="Arial, sans-serif" font-weight="700" fill="#1d1d1d">MEDITASI</text>
-              <text x="70" y="82" font-size="18" font-family="Arial, sans-serif" fill="#1d1d1d">Posisi Duduk dan Tangan Saat Bermeditasi</text>
+      <p class="section-note">💡 Catatan: Bila perlu, Anda bisa duduk di kursi dengan kaki menyentuh lantai.</p>
 
-              <path d="M100 170 C120 120, 155 120, 185 170"/>
-              <path d="M180 170 C210 120, 245 120, 270 170"/>
-              <path d="M140 170 C160 150, 180 150, 195 170"/>
-              <path d="M220 170 C235 150, 255 150, 270 170"/>
-              <path d="M120 170 L120 250"/>
-              <path d="M170 170 L170 250"/>
-              <path d="M220 170 L220 250"/>
-              <path d="M270 170 L270 250"/>
-              <path d="M95 250 L290 250"/>
-              <text x="150" y="290" font-size="18" font-family="Arial, sans-serif" text-anchor="middle">Full Lotus</text>
-
-              <path d="M350 170 C380 120, 430 120, 470 170"/>
-              <path d="M470 170 C500 120, 545 120, 580 170"/>
-              <path d="M400 170 C420 150, 450 150, 470 170"/>
-              <path d="M520 170 C535 150, 560 150, 580 170"/>
-              <path d="M365 170 L365 250"/>
-              <path d="M470 170 L470 250"/>
-              <path d="M530 170 L530 250"/>
-              <path d="M580 170 L580 250"/>
-              <path d="M345 250 L590 250"/>
-              <text x="470" y="290" font-size="18" font-family="Arial, sans-serif" text-anchor="middle">Half Lotus</text>
-
-              <path d="M630 170 C655 125, 710 125, 760 170"/>
-              <path d="M760 170 C785 125, 825 125, 855 170"/>
-              <path d="M642 170 L642 250"/>
-              <path d="M748 170 L748 250"/>
-              <path d="M850 170 L850 250"/>
-              <path d="M620 250 L870 250"/>
-              <text x="745" y="290" font-size="18" font-family="Arial, sans-serif" text-anchor="middle">Side by Side</text>
-
-              <path d="M260 308 L390 308"/>
-              <path d="M390 308 L390 160"/>
-              <path d="M390 160 L450 160"/>
-              <path d="M450 160 L450 308"/>
-              <path d="M450 308 L560 308"/>
-              <path d="M465 226 C505 200, 530 205, 550 230"/>
-              <path d="M490 245 L510 300"/>
-              <path d="M540 230 L555 195"/>
-              <path d="M420 170 L470 200"/>
-              <path d="M470 200 L425 260"/>
-              <path d="M420 170 L360 230"/>
-              <path d="M470 200 L550 240"/>
-              <path d="M470 200 L470 280"/>
-              <path d="M460 280 L500 340"/>
-              <path d="M470 280 L425 340"/>
-              <path d="M510 340 L565 340"/>
-              <path d="M425 340 L370 340"/>
-              <circle cx="468" cy="130" r="26"/>
-              <path d="M468 155 L468 198"/>
-              <path d="M470 174 L520 195"/>
-              <path d="M468 174 L415 195"/>
-              <path d="M468 198 L455 262"/>
-              <path d="M468 198 L490 260"/>
-              <path d="M450 255 L390 315"/>
-              <path d="M490 255 L550 315"/>
-              <path d="M390 315 L420 350"/>
-              <path d="M550 315 L520 350"/>
-              <path d="M428 346 L465 346"/>
-              <path d="M470 346 L518 346"/>
-
-              <path d="M110 332 Q170 292 200 330"/>
-              <path d="M195 330 Q235 290 270 336"/>
-              <path d="M118 332 L118 358"/>
-              <path d="M260 332 L260 358"/>
-              <path d="M85 358 L295 358"/>
-
-              <text x="180" y="380" font-size="18" font-family="Arial, sans-serif" text-anchor="middle">Kanan</text>
-              <text x="420" y="380" font-size="18" font-family="Arial, sans-serif" text-anchor="middle">Kiri</text>
-
-              <path d="M635 106 L700 106"/>
-              <path d="M635 106 L635 138"/>
-              <path d="M700 106 L700 138"/>
-              <path d="M640 130 L670 150"/>
-              <path d="M695 130 L665 150"/>
-            </g>
-          </svg>
-        </div>
-      </div>
-
-      <p style="text-align: center; font-style: italic; color: #555; margin-top: 1rem;">💡 Catatan: Bila perlu, Anda bisa duduk di kursi dengan kaki menyentuh lantai.</p>
-
-      <h3 style="color: #1e3629; font-style: normal; margin-top: 2rem;">📋 Persiapan Meditasi - Langkah Demi Langkah</h3>
+      <h3 class="section-subhead">📋 Persiapan Meditasi - Langkah Demi Langkah</h3>
       
       <div class="steps-container">
         <div class="step">
@@ -402,7 +483,7 @@
         </div>
       </div>
 
-      <h3 style="color: #1e3629; font-style: normal; margin-top: 2rem;">💪 Manfaat Meditasi</h3>
+      <h3 class="section-subhead">💪 Manfaat Meditasi</h3>
       
       <div class="benefits-grid">
         <div class="benefit-item"><p>✨ Meningkatkan ketenangan dan kesejahteraan mental</p></div>
@@ -494,53 +575,89 @@
       <h2>Latihan Harian Bersama</h2>
       <p style="text-align: center; margin-bottom: 2rem; max-width: 700px;">Program latihan bersama meditasi kesehatan secara <em>live online</em>. Mari pertahankan disiplin mengasah teknik meditasi dan cinta kasih bersama-sama.</p>
       
-      <div class="card-container" style="max-width: 800px; gap: 40px;">
-        <div class="card" style="width: 320px; text-align: center;">
+      <div class="card-container card-container--wide" style="max-width: 800px;">
+        <div class="card card--wide" style="text-align: center;">
           <h4 style="margin-bottom: 5px;">💻 Live Zoom</h4>
           <p style="font-size: 0.95rem; font-style: italic; margin-bottom: 15px; color: #4a6355;">(Setiap Hari Pagi & Malam)</p>
-          <ul style="list-style: none; margin: 0 auto 15px auto; padding: 0; font-size: 1rem; text-align: left; display: inline-block;">
+          <ul class="schedule">
             <li>🌅 <strong>05.00 WIB</strong> (English)</li>
             <li>🌃 <strong>21.00 WIB</strong> (Indonesia)</li>
           </ul>
-          <div style="background: rgba(30, 54, 41, 0.08); padding: 15px; border-radius: 10px;">
-            <p style="font-size: 0.9rem; margin-bottom: 5px; text-align: left;"><strong>ID:</strong> 344 566 7899</p>
-            <p style="font-size: 0.9rem; margin-bottom: 15px; text-align: left;"><strong>Passcode:</strong> baliusada</p>
-            <a href="https://us02web.zoom.us/j/3445667899?pwd=cjJTZnhTcmZsR2p1UDR1S0oyM2dPQT09" target="_blank" style="display: block; background: #244232; color: white; text-decoration: none; padding: 10px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;">Bergabung di Zoom</a>
+          <div class="zoom-box">
+            <p><strong>ID:</strong> 344 566 7899</p>
+            <p><strong>Passcode:</strong> baliusada</p>
+            <a href="https://us02web.zoom.us/j/3445667899?pwd=cjJTZnhTcmZsR2p1UDR1S0oyM2dPQT09" target="_blank" rel="noopener noreferrer" class="btn-block btn-zoom">Bergabung di Zoom</a>
           </div>
         </div>
 
-        <div class="card" style="width: 320px; text-align: center; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="card card--wide card--stack" style="text-align: center;">
           <div>
             <h4 style="margin-bottom: 5px;">▶️ Sesi Spesial & Mandiri</h4>
             <p style="font-size: 0.95rem; margin-top: 15px; margin-bottom: 5px;"><strong>Latihan bersama Pak Merta Ada:</strong></p>
             <p style="font-size: 0.9rem; margin-bottom: 10px;">Khusus Selasa Pagi & Minggu Malam diadakan live di YouTube.</p>
-            <a href="http://youtube.com/c/baliusadahealthmeditation" target="_blank" style="color: #b04600; font-weight: 600; text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 15px;">🔗 Subscribe di YouTube</a>
+            <a href="http://youtube.com/c/baliusadahealthmeditation" target="_blank" rel="noopener noreferrer" class="link-accent">🔗 Subscribe di YouTube</a>
           </div>
 
-          <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(0,0,0,0.1);">
+          <div class="card-divider">
             <p style="font-size: 0.95rem; margin-bottom: 10px;"><strong>Latihan Meditasi di Rumah:</strong></p>
-            <a href="https://m.youtube.com/watch?v=PezeC1KzzvA&list=PLoyixQ-NGWJLcx0Q6ULNTiMdS0DJRjrEz&index=1&pp=iAQB" target="_blank" style="display: block; background: #c0392b; color: white; text-decoration: none; padding: 10px; border-radius: 6px; font-size: 0.9rem; font-weight: 600;">Tonton Playlist Video</a>
+            <a href="https://m.youtube.com/watch?v=PezeC1KzzvA&list=PLoyixQ-NGWJLcx0Q6ULNTiMdS0DJRjrEz&index=1&pp=iAQB" target="_blank" rel="noopener noreferrer" class="btn-block btn-playlist">Tonton Playlist Video</a>
           </div>
         </div>
       </div>
 
-      <p style="margin-top: 3rem; font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #244232; font-style: italic; font-weight: 600;">"Semoga Semua Hidup Berbahagia 😊🙏🏻"</p>
+      <p class="closing-wish">"Semoga Semua Hidup Berbahagia 😊🙏🏻"</p>
       <a href="#slide1" class="nav-btn" style="background-color: #7f8c8d; margin-top: 1rem;">&uarr; Kembali ke Awal</a>
     </div>
   </section>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const reveals = document.querySelectorAll(".reveal");
-      const revealOnScroll = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
+    (function() {
+      var root = document.documentElement;
+      root.classList.add("js");
+
+      function activateAll() {
+        document.querySelectorAll(".reveal").forEach(function(el) {
+          el.classList.add("active");
         });
-      }, { threshold: 0.15 });
-      reveals.forEach(reveal => revealOnScroll.observe(reveal));
-    });
+      }
+
+      function initReveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        if (!reveals.length) return;
+
+        // browser tanpa IntersectionObserver -> langsung tampilkan semua
+        if (typeof IntersectionObserver === "undefined") {
+          activateAll();
+          return;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
+
+        reveals.forEach(function(reveal) { observer.observe(reveal); });
+
+        // pengaman: elemen yang sudah terlihat tapi belum terpicu tetap ditampilkan
+        window.setTimeout(function() {
+          reveals.forEach(function(reveal) {
+            if (reveal.getBoundingClientRect().top < window.innerHeight) {
+              reveal.classList.add("active");
+            }
+          });
+        }, 400);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initReveal);
+      } else {
+        initReveal();
+      }
+    })();
   </script>
 </body>
 </html>
