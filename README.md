@@ -14,6 +14,9 @@ Meditasi adalah praktik fokus pikiran untuk mencapai ketenangan, keseimbangan em
 ## 🧘 Cara Meditasi Dasar
 
 ### Posisi Duduk Saat Bermeditasi
+
+![Tata cara duduk meditasi](meditasi.png)
+
 Pilih salah satu posisi yang nyaman:
 
 | Posisi | Keterangan |
